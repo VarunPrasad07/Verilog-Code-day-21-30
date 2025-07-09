@@ -1,0 +1,30 @@
+module multiplier_tb();
+reg [15:0] a,b,c,d,e,f,g,h,i;
+reg [3:0] sel;
+wire [15:0] out;
+integer j;
+multiplier uut(.a(a),.b(b),.c(c),.d(d),.e(e),.f(f),.g(g),.h(h),.i(i),.sel(sel),.out(out));
+initial begin
+a=10;
+b=8;
+c=5;
+d=9;
+e=7;
+f=11;
+g=7;
+h=3;
+i=12;
+end 
+initial begin
+sel =0;
+for(j=4'd0;j<=4'd8;j=j+4'd1)
+begin
+sel=j;
+#10;
+end
+sel =16'hffff;
+#30;
+$finish;
+end
+endmodule 
+
