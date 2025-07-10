@@ -1,0 +1,23 @@
+module comparator_tb();
+reg [3:0] a,b;
+wire eq,lt,gt;
+comparator uut(.a(a),.b(b),.lt(lt),.eq(eq),.gt(gt));
+initial begin
+a=10;
+b=15;
+#10;
+a=9;
+b=12;
+#10;
+a=15;
+b=15;
+#10;
+a=2;
+b=4;
+#10;
+a=12;
+b=13;
+#10;
+$finish; 
+end
+endmodule
