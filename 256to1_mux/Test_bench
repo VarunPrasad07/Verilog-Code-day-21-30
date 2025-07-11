@@ -1,0 +1,21 @@
+module mux_tb();
+reg [255:0] in;
+reg [7:0] sel;
+wire out;
+integer i,j;
+mux uut(.in(in),.out(out),.sel(sel));
+initial begin
+for (j=0;j<=255;j=j+1) begin
+in[j]=$random%2;
+#10;
+end
+end
+initial begin
+for (i=0;i<=255;i=i+1)
+begin
+sel = i;
+#10;
+end
+$finish;
+end 
+endmodule 
