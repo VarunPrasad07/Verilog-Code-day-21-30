@@ -1,0 +1,14 @@
+module parity_tb();
+reg [7:0]in;
+wire out;
+integer i;
+parity uut(.in(in),.out(out));
+initial begin
+for(i=0;i<=63;i=i+1)
+begin
+in=i;
+#10;
+end
+$finish;
+end
+endmodule
