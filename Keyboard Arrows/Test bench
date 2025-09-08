@@ -1,0 +1,25 @@
+module latches_tb();
+reg [15:0] scancode;
+wire  left;
+wire  right;
+wire  down;
+wire  up;
+top_module uut(.scancode(scancode),.up(up),.down(down),.right(right),.left(left));
+initial begin
+    $dumpfile("tb_top_module.vcd");  
+    $dumpvars(0, latches_tb);
+    scancode = 16'he06b; #10;
+    $display("Scancode=%h => L=%b D=%b R=%b U=%b", scancode, left, down, right, up);
+    scancode = 16'he072; #10;
+    $display("Scancode=%h => L=%b D=%b R=%b U=%b", scancode, left, down, right, up);
+    scancode = 16'he074; #10;
+    $display("Scancode=%h => L=%b D=%b R=%b U=%b", scancode, left, down, right, up);
+    scancode = 16'he075; #10;
+    $display("Scancode=%h => L=%b D=%b R=%b U=%b", scancode, left, down, right, up);
+    scancode = 16'h1234; #10;
+    $display("Scancode=%h => L=%b D=%b R=%b U=%b", scancode, left, down, right, up);
+
+    $finish;
+  end
+
+endmodule
